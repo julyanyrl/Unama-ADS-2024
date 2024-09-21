@@ -6,7 +6,7 @@ public class Main {
         System.out.println("=============== Testando métodos gets ===============");
         System.out.println("Título: " + tarefa1.getTitulo());
         System.out.println("Descrição: " + tarefa1.getDescricao());
-        System.out.println();
+        System.out.println();;
 
         System.out.println("=============== Imprimindo com método exibitDetalhes() ===============");
         tarefa1.exibirDetalhes();
@@ -23,25 +23,26 @@ public class Main {
         System.out.print("Novo prazo da tarefa 1: ");
         tarefa1.setPrazo("2024-15-48");
 
-        System.out.println("=============== Imprimindo tarefa ugente ===============");
-
-        TarefaUrgente tarefaUrg1 = new TarefaUrgente("Estudar para a prova", "Conceitos de POO", "2024-10-02", "Não entendi nada");
-
-        tarefaUrg1.exibirDetalhes();
-
-        System.out.println("=============== Imprimindo tarefa não urgente ===============");
-
-        TarefaNaoUrgente tarefaNaoUrg1 = new TarefaNaoUrgente("Ler um livro", "Aprofundar conhecimento em POO", "2024-12-01", "Poderia ser feito depois");
-        tarefaNaoUrg1.exibirDetalhes();
-
         System.out.println("=============== Imprimindo tarefa urgente ===============");
+        TarefaUrgente tarefaUrg1 = new TarefaUrgente("Estudar para a prova", "Conceitos de POO", "2024-10-02", "Não entendi nada");
+        tarefaUrg1.exibirDetalhes();
+        tarefaUrg1.enviarNotificacao();
 
-        Tarefa[] listaTarefas = new Tarefa[4];
+        System.out.println("=============== Imprimindo tarefa sem prazo ===============");
+        TarefaSemPrazo tarefaSemPrazo = new TarefaSemPrazo("Ler", "Aprofundar conhecimento em POO");
+        tarefaSemPrazo.exibirDetalhes();
+
+        System.out.println("=============== Imprimindo tarefa com prazo flexível ===============");
+        TarefaComPrazoFlexivel tarefaFlex1 = new TarefaComPrazoFlexivel("Estudar para estrutura de dados","Conceitos de lista ligada","2024-10-18",2,5);
+        tarefaSemPrazo.exibirDetalhes();
+
+        Tarefa[] listaTarefas = new Tarefa[5];
 
         listaTarefas[0] = tarefa1;
         listaTarefas[1] = tarefa2;
         listaTarefas[2] = tarefaUrg1;
-        listaTarefas[3] = tarefaNaoUrg1;
+        listaTarefas[3] = tarefaSemPrazo;
+        listaTarefas[4] = tarefaFlex1;
 
         for (Tarefa tarefa : listaTarefas) {
             tarefa.exibirDetalhes();

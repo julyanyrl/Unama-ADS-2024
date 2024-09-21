@@ -1,4 +1,4 @@
-public class TarefaUrgente extends Tarefa {
+public class TarefaUrgente extends Tarefa implements Notificacao {
     private String razaoUrgencia;
 
     // Construtor da Tarefa Urgente
@@ -21,5 +21,15 @@ public class TarefaUrgente extends Tarefa {
     public void exibirDetalhes() {
         super.exibirDetalhes();
         System.out.println("Razão da Urgência: " + this.razaoUrgencia);
+        System.out.println("Tipo: Tarefa urgente");
     }
+
+    @Override
+    public void enviarNotificacao() {
+        System.out.println("Notificação: A tarefa '" + super.getTitulo() + "' é urgente! - Razão: " + this.razaoUrgencia);
+    }
+}
+
+interface Notificacao {
+    void enviarNotificacao();
 }
